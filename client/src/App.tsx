@@ -4,8 +4,17 @@ import useSWR from "swr";
 
 export const ENDPOINT = "http://localhost:8080";
 
+interface Gif {
+  type: string;
+  id: string;
+  url: string;
+  slug: string;
+  bitly_gif_url: string;
+  embed_url: string;
+}
+
 function App() {
-  const [inputValue, setInputValue] = useState("hero");
+  const [inputValue, setInputValue] = useState("trending");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -21,7 +30,7 @@ function App() {
   }
 
   const giphyData = data?.data || [];
-  const embeddedURLs = giphyData.map((gif) => gif.embed_url);
+  const embeddedURLs = giphyData.map((gif: Gif) => gif.embed_url);
 
   return (
     <>
@@ -32,7 +41,7 @@ function App() {
         </label>
       </form>
       <div>
-        {embeddedURLs?.map((embeddedURL, index) => (
+        {embeddedURLs?.map((embeddedURL: string, index: number) => (
           <iframe
             key={index} // Make sure to provide a unique key for each iframe
             title={`Giphy Embed ${index}`}

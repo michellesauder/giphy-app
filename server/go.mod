@@ -1,4 +1,4 @@
-module github.com/michellesauder/go-react-todo
+module github.com/michellesauder/go-react-giphy-app
 
 go 1.21.2
 

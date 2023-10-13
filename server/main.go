@@ -19,5 +19,4 @@ func main() {
 	http.Handle("/", r)
 	fmt.Printf("starting server at port 8080")
 	log.Fatal(http.ListenAndServe(":8080", cors))
-
 }

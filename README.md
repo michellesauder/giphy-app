@@ -10,7 +10,7 @@ Before you begin, ensure you have both Go and Node.js (with Yarn) installed on y
 
 1. Navigate to the `server` directory.
 
-2. Create a `.env` file and add your Giphy API key:
+2. Create a `.env` file and add your [Giphy](https://developers.giphy.com/) API key:
 
    ```
    API_KEY=YOUR_API_KEY

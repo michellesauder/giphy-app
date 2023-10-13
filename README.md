@@ -13,7 +13,7 @@ Before you begin, ensure you have both Go and Node.js (with Yarn) installed on y
 2. Create a `.env` file and add your Giphy API key:
 
    ```
-   GIPHY_API_KEY=YOUR_API_KEY
+   API_KEY=YOUR_API_KEY
    ```
 
 3. Install the required Go dependencies:

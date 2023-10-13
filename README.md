@@ -41,7 +41,7 @@ The Go backend will start on http://localhost:8080.
 
 3. Start the React development server:
    ```
-   yarn start
+   yarn dev
    ```
 
 The React frontend will be accessible on http://localhost:5173/.

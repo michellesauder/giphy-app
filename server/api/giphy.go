@@ -25,6 +25,11 @@ func GetGiphs(w http.ResponseWriter, r *http.Request) {
 
 	// Access environment variables
 	apiKey := os.Getenv("API_KEY")
+	if apiKey == "" {
+		http.Error(w, "API_KEY not found", http.StatusInternalServerError)
+		return
+	}
+
 	ctx = context.WithValue(ctx, "apiKey", apiKey)
 
 	vars := mux.Vars(r)

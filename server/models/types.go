@@ -1,16 +1,17 @@
 package models
 
+// if a JSON key is missing, the corresponding Go field will be set to nil instead of being omitted.
 type Image struct {
-	Height   string `json:"height"`
-	Width    string `json:"width"`
-	Size     string `json:"size"`
-	URL      string `json:"url"`
-	MP4Size  string `json:"mp4_size"`
-	MP4      string `json:"mp4"`
-	WebPSize string `json:"webp_size"`
-	WebP     string `json:"webp"`
-	Frames   string `json:"frames"`
-	Hash     string `json:"hash"`
+	Height   *string `json:"height,omitempty"`
+	Width    *string `json:"width,omitempty"`
+	Size     *string `json:"size,omitempty"`
+	URL      *string `json:"url,omitempty"`
+	MP4Size  *string `json:"mp4_size,omitempty"`
+	MP4      *string `json:"mp4,omitempty"`
+	WebPSize *string `json:"webp_size,omitempty"`
+	WebP     *string `json:"webp,omitempty"`
+	Frames   *string `json:"frames,omitempty"`
+	Hash     *string `json:"hash,omitempty"`
 }
 
 type DataItem struct {

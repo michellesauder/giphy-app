@@ -1,6 +1,7 @@
 package api
 
 import (
+	"context"
 	"encoding/json"
 	"io"
 	"log"
@@ -14,15 +15,21 @@ import (
 )
 
 func GetGiphs(w http.ResponseWriter, r *http.Request) {
+	ctx := context.Background()
+
 	// Load environment variables from .env file
 	if err := godotenv.Load(); err != nil {
 		log.Fatalf("Error loading .env file: %v", err)
 	}
+	ctx = context.WithValue(ctx, "env", os.Environ())
 
 	// Access environment variables
 	apiKey := os.Getenv("API_KEY")
+	ctx = context.WithValue(ctx, "apiKey", apiKey)
+
 	vars := mux.Vars(r)
 	searchTerm := vars["search"]
+	ctx = context.WithValue(ctx, "searchTerm", searchTerm)
 
 	url := "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + searchTerm + "&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips"
 
